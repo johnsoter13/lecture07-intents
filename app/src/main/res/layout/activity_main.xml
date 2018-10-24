@@ -26,7 +26,6 @@
         android:layout_height="wrap_content"
         android:text="Start New Activity"
         android:layout_gravity="center_horizontal"
-        android:onClick="launchActivity"
         />
 
     <LinearLayout

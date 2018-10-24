@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class PowerReceiver extends BroadcastReceiver {
 
-    public static final String TAG = "RECEIVER";
+    public static final String TAG = "MY_RECEIVER";
 
     @Override
     public void onReceive(Context context, Intent intent) {
