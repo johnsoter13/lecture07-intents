@@ -72,9 +72,10 @@ class MainActivity : AppCompatActivity() {
     fun takePicture(v: View?) {
         Log.v(TAG, "Camera button pressed")
 
-        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE) // take a picture
         if (takePictureIntent.resolveActivity(packageManager) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE) // do this intent AND send a reply back
+                                                        // This is the id that gets sent back so we know which reply is which
         }
 
     }
@@ -91,14 +92,18 @@ class MainActivity : AppCompatActivity() {
         //                         target,       message
     }
 
+    // called when we get a response back
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        // if response is camera code and result is ok
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            // do something with the data
             val extras = data.extras?.apply {
                 val imageBitmap = get("data") as Bitmap
                 val imageView = findViewById<ImageView>(R.id.img_thumbnail)
                 imageView.setImageBitmap(imageBitmap)
             }
         }
+        // super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -115,6 +120,7 @@ class MainActivity : AppCompatActivity() {
 
         return true
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
