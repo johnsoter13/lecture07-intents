@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.uw.intentdemo">
 
-    <uses-permission android:name="android.permission.SEND_SMS" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,26 +22,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.uw.intentdemo.MainActivity" />
 
-            <!-- respond to dial intents! -->
-            <intent-filter>
-                <action android:name="android.intent.action.DIAL"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="tel" />
-            </intent-filter>
-
         </activity>
-
-        <!-- Only works on API 25 and lower... -->
-        <!--<receiver android:name=".PowerReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />-->
-                <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
-                <!--<action android:name="android.intent.action.BATTERY_CHANGED" />-->
-                <!--<action android:name="android.intent.action.BATTERY_OKAY" />-->
-                <!--&lt;!&ndash; no category because not for an activity! &ndash;&gt;-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
-
     </application>
 
 </manifest>
