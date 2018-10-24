@@ -33,16 +33,16 @@
 
         </activity>
 
-        <receiver android:name=".PowerReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-                <action android:name="android.intent.action.BATTERY_CHANGED" />
-                <action android:name="android.intent.action.BATTERY_OKAY" />
-                <!-- no category because not for an activity! -->
-            </intent-filter>
-        </receiver>
-
+        <!-- Only works on API 25 and lower... -->
+        <!--<receiver android:name=".PowerReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />-->
+                <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />-->
+                <!--<action android:name="android.intent.action.BATTERY_CHANGED" />-->
+                <!--<action android:name="android.intent.action.BATTERY_OKAY" />-->
+                <!--&lt;!&ndash; no category because not for an activity! &ndash;&gt;-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
 
     </application>
 
