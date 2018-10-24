@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private val REQUEST_IMAGE_CAPTURE = 1
 
+    // Why do we use companion objects?
     companion object {
         const val EXTRA_MESSAGE = "edu.uw.intentdemo.message"
         const val ACTION_SMS_STATUS = "edu.uw.intentdemo.ACTION_SMS_STATUS"
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         launchButton.setOnClickListener {
             Log.v(TAG, "Launch button pressed")
 
+            // Explicit intent: we are sending this intent directly
             //                   context,                         target
             val intent = Intent(this@MainActivity, SecondActivity::class.java)
             intent.putExtra(EXTRA_MESSAGE, "Greetings from sunny MainActivity!")
@@ -59,9 +61,10 @@ class MainActivity : AppCompatActivity() {
     fun callNumber(v: View) {
         Log.v(TAG, "Call button pressed")
 
-        val intent = Intent(Intent.ACTION_DIAL)
-        intent.data = Uri.parse("tel:206-685-1622")
-        if (intent.resolveActivity(packageManager) != null) {
+        // implicit intent: sending an intent out to anyone who can handle the intent
+        val intent = Intent(Intent.ACTION_DIAL) // this intent sends an action
+        intent.data = Uri.parse("tel:206-685-1622") // different than extra, this actually sends the data for the intent
+        if (intent.resolveActivity(packageManager) != null) { // tests to see if someone can actually run this intent
             startActivity(intent)
         }
     }

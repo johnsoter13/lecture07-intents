@@ -14,6 +14,7 @@ class SecondActivity : AppCompatActivity() {
         //action bar "back"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        // extra values sent from main activity
         intent.extras.apply {
             val message = this.getString(MainActivity.EXTRA_MESSAGE)
             val subtitle = findViewById<View>(R.id.txt_second) as TextView
